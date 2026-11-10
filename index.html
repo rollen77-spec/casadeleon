@@ -66,7 +66,9 @@ section{padding-block:clamp(64px,9vw,120px)}
 header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.01em}
-.brand svg{width:30px;height:30px;color:var(--gold)}
+.brand img{display:block;height:46px;width:auto}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .brand img{filter:invert(1)}}
+:root[data-theme="dark"] .brand img{filter:invert(1)}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
 .nav ul a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted)}
 .nav ul a:hover{color:var(--ink)}
@@ -83,6 +85,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 /* hero */
 .hero{padding:0;position:relative;color:#fff;background:var(--deep)}
 .hero .ph{height:clamp(480px,78vh,760px);background:var(--deep)}
+.hero .ph img{object-position:center 60%}
 .hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,13,.15) 30%,rgba(8,16,13,.78) 100%)}
 .hero-copy{position:absolute;inset:auto 0 0 0;padding-block:0 clamp(36px,6vw,72px)}
 .hero h1{font-size:clamp(3rem,9vw,7rem);font-weight:800;letter-spacing:-.035em;line-height:.95}
@@ -157,6 +160,7 @@ dialog.lb img{max-width:100%;max-height:84vh;display:block;border-radius:10px}
 /* video */
 .video .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
 .vid{display:block;aspect-ratio:16/9;border-radius:20px;text-decoration:none;max-width:100%}
+.vid video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
 .vid .play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(8,16,13,.35);transition:background .2s}
 .vid:hover .play{background:rgba(8,16,13,.2)}
 .vid .play span{width:84px;height:84px;border-radius:50%;background:var(--gold);display:grid;place-items:center}
@@ -212,16 +216,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;
 .social svg{width:19px;height:19px}
 footer small{opacity:.65;flex-basis:100%}
 footer .brand{color:var(--deep-ink)}
+footer .brand img{height:72px;filter:invert(1)!important}
 </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Casa de Leon home">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="16" cy="16" r="14"/><path d="M16 7c-4.5 0-7.5 3.4-7.5 7.6 0 3 1.6 5.4 3.6 6.8l-.6 3.6 4.5-1.7 4.5 1.7-.6-3.6c2-1.4 3.6-3.8 3.6-6.8C23.5 10.4 20.5 7 16 7z"/><circle cx="13" cy="14.5" r=".9" fill="currentColor"/><circle cx="19" cy="14.5" r=".9" fill="currentColor"/><path d="M14.5 18.5h3L16 20z" fill="currentColor"/></svg>
-      Casa de Leon
-    </a>
+    <a class="brand" href="#top" aria-label="Casa de Leon home"><img src="images/logo.png" alt="Casa de Leon" width="700" height="447"></a>
     <ul id="menu">
       <li><a href="#reserve">Reservations</a></li>
       <li><a href="#amenities">Amenities</a></li>
@@ -239,7 +241,7 @@ footer .brand{color:var(--deep-ink)}
 
 <main id="top">
 <section class="hero">
-  <div class="ph"><img src="images/701dfbfb-37f6-4201-8903-9ab31187bc35.webp" alt="Casa de Leon studio opening onto the backyard"></div>
+  <div class="ph"><img src="images/night-gazebo-pool.webp" alt="The lit gazebo, pool and studio at night"></div>
   <div class="hero-copy">
     <div class="wrap">
       <h1>Casa de Leon</h1>
@@ -296,7 +298,7 @@ footer .brand{color:var(--deep-ink)}
     </div>
 
     <article class="am">
-      <div class="ph"><img src="images/98857c04-d2ad-4d8f-baa3-a731b3ea0c55.webp" alt="The studio interior" loading="lazy"></div>
+      <div class="ph"><img src="images/patio-dining.webp" alt="Folding patio doors open from the studio onto the dining patio and pool" style="object-position:62% center" loading="lazy"></div>
       <div class="txt">
         <h3>Private studio or 1 bedroom rental (4 guests max)</h3>
         <p class="sub">Availability for double occupancy = studio + additional bedroom for 3–4 persons</p>
@@ -316,7 +318,7 @@ footer .brand{color:var(--deep-ink)}
     </article>
 
     <article class="am">
-      <div class="ph"><img src="images/357aa82a-5f9d-4b74-bd42-a362f843d42c.webp" alt="The quiet Lakeview neighbourhood" loading="lazy"></div>
+      <div class="ph"><img src="images/stairs-to-pool.webp" alt="Glass-railed stairs leading down through greenery to the pool" loading="lazy"></div>
       <div class="txt">
         <h3>Convenient location, quiet &amp; private oasis</h3>
         <p class="sub">Minutes from Toronto Airport, cafes, grocery stores, malls, restaurants and more</p>
@@ -337,7 +339,7 @@ footer .brand{color:var(--deep-ink)}
     </article>
 
     <article class="am">
-      <div class="ph"><img src="images/46a9a35d-4abf-4e93-b587-e8d732a8dd62.webp" alt="Backyard pool and play area" loading="lazy"></div>
+      <div class="ph"><img src="images/backyard-pool-aerial.webp" alt="Pool, slide and gazebo surrounded by mature trees" loading="lazy"></div>
       <div class="txt">
         <h3>Family friendly, perfect for all ages</h3>
         <p class="sub">Private pool, hot tub, basketball court, campfire pit, trampoline, board games…</p>
@@ -377,7 +379,7 @@ footer .brand{color:var(--deep-ink)}
     </article>
 
     <article class="am">
-      <div class="ph"><img src="images/4c0e1b88-4c77-45ca-a0b9-01f9ca691d94.webp" alt="Deck with outdoor dining and lounge seating" loading="lazy"></div>
+      <div class="ph"><img src="images/gazebo-lounge.webp" alt="Gazebo lounge with sectional sofa beside the pool and hot tub" loading="lazy"></div>
       <div class="txt">
         <h3>Outdoor living experience</h3>
         <p class="sub">Outdoor dining table, BBQ grills, Sunbrella canopies, gazebo and more</p>
@@ -401,7 +403,7 @@ footer .brand{color:var(--deep-ink)}
     <h2>Extras &amp; services</h2>
     <div class="extras-grid">
       <article class="ex">
-        <div class="ph"><img src="images/espresso.jpg" alt="Espresso machine pouring a shot" loading="lazy"></div>
+        <div class="ph"><img src="images/espresso.webp" alt="Espresso machine and grinder at the coffee bar" loading="lazy"></div>
         <div>
           <h3>Gourmet espresso &amp; wine bar</h3>
           <p>Savour freshly brewed espresso or coffee from our coffee bar and cool down with an iced cappuccino, with access to ice and a filtered water dispenser. Our wine fridge lets guests keep their wine at a controlled temperature for a refined taste experience.</p>
@@ -423,7 +425,7 @@ footer .brand{color:var(--deep-ink)}
         </div>
       </article>
       <article class="ex">
-        <div class="ph"><img src="images/events.jpg" alt="String lights at a party" loading="lazy"></div>
+        <div class="ph"><img src="images/night-lights.webp" alt="Gazebo under string lights at night" loading="lazy"></div>
         <div>
           <h3>Special events</h3>
           <p class="sub">Max capacity is 15 guests</p>
@@ -464,10 +466,7 @@ footer .brand{color:var(--deep-ink)}
 
 <section class="video" id="video">
   <div class="wrap">
-    <a class="vid ph" href="https://www.youtube.com/watch?v=z-SswXatRRE" target="_blank" rel="noopener" aria-label="Watch the Casa de Leon video on YouTube">
-      <img src="images/efcc29eb-8c97-4519-9608-ff2ec5f470ac.webp" alt="" loading="lazy">
-      <span class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span></span>
-    </a>
+    <div class="vid ph"><video controls playsinline preload="metadata" poster="images/video-poster.webp" aria-label="Video tour of Casa de Leon"><source src="video/casa-de-leon.mp4" type="video/mp4"></video></div>
     <div>
       <h2>The Casa de Leon retreat experience</h2>
       <p>Discover tranquility at Casa de Leon, a modern studio with seamless indoor/outdoor living in Mississauga. Enjoy luxury amenities including a private basketball court, pool, jacuzzi, wine fridge, and espresso bar. Perfectly located near highways, Toronto Pearson Airport, and vibrant shopping destinations.</p>
@@ -542,10 +541,7 @@ footer .brand{color:var(--deep-ink)}
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#top">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" style="color:var(--gold)"><circle cx="16" cy="16" r="14"/><path d="M16 7c-4.5 0-7.5 3.4-7.5 7.6 0 3 1.6 5.4 3.6 6.8l-.6 3.6 4.5-1.7 4.5 1.7-.6-3.6c2-1.4 3.6-3.8 3.6-6.8C23.5 10.4 20.5 7 16 7z"/><circle cx="13" cy="14.5" r=".9" fill="currentColor"/><circle cx="19" cy="14.5" r=".9" fill="currentColor"/><path d="M14.5 18.5h3L16 20z" fill="currentColor"/></svg>
-      Casa de Leon
-    </a>
+    <a class="brand" href="#top" aria-label="Casa de Leon home"><img src="images/logo.png" alt="Casa de Leon" width="700" height="447"></a>
     <div class="social">
       <a href="https://instagram.com/casadeleonbnb" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
       <a href="https://www.facebook.com/share/1CW5nnesgy/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></svg></a>
@@ -567,9 +563,8 @@ menuBtn.addEventListener('click', () => { const o = menu.classList.toggle('open'
 menu.addEventListener('click', e => { if (e.target.tagName === 'A') { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
 
 // gallery
-const photos = ['efcc29eb-8c97-4519-9608-ff2ec5f470ac','488c9ee2-cb0a-4a71-9922-18913f4b58d7','e8718eca-b162-45b6-80cb-330268269c80','4c0e1b88-4c77-45ca-a0b9-01f9ca691d94','52954079-f166-4a1a-ae12-2cca662f1d3a','509c2f61-6073-4bb2-bdbe-0780ca070f79','f3b28290-3c12-4f3f-97a0-a38f9e23a0c5','aea9c5f5-bb6f-4cff-9e3f-92cf09c64495','a8ad8724-4ae1-4f0c-a016-8a99f40d5dc2','46a9a35d-4abf-4e93-b587-e8d732a8dd62','6278d893-2c86-45c2-9fca-1a5f593cc33d','8f763da2-6f2d-4781-979b-0df83be233a4','8a23b631-6a65-4d2a-92b5-6d7d0a0b53aa','35e8a7bb-c970-4a9c-b1db-345e3208dff0','0363b8bd-9d52-4def-b581-ebf0f910527f','3a08da15-fa19-4c21-b58b-eef36bb6b791','5d76719e-f781-40b6-b05b-4cd8fb759202','boardgame','a2e98803-126c-47a4-971e-baa741c83475','f12b5eae-172c-4dfc-9ba2-bf912f67378d']
-  .map(id => 'images/' + id + (id === 'boardgame' ? '.jpg' : '.webp'));
-const shapes = {0:'g-wide g-tall',5:'g-tall',8:'g-wide',12:'g-tall',14:'g-wide',17:'g-wide'};
+const photos = ['night-gazebo-pool.webp','gazebo-lounge.webp','backyard-pool-aerial.webp','deck.webp','stairs-to-pool.webp','patio-dining.webp','studio-exterior.webp','night-lights.webp'].map(f => 'images/' + f);
+const shapes = {0:'g-wide g-tall',5:'g-wide'};
 const grid = document.getElementById('grid');
 photos.forEach((src, i) => {
   const b = document.createElement('button');
@@ -610,5 +605,5 @@ cf.addEventListener('submit', e => {
   note.textContent = 'Your email app should open with your message ready to send. If it doesn’t, email bookings@casadeleon.ca directly.';
 });
 </script>
-</body>
-</html>
+
+</body></html>
