@@ -143,7 +143,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 @media (max-width:480px){.ex{grid-template-columns:96px 1fr;gap:16px}}
 
 /* gallery */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:10px;margin-top:40px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;grid-auto-flow:dense;gap:10px;margin-top:40px}
 .gallery-grid button{all:unset;cursor:zoom-in;border-radius:12px;overflow:hidden}
 .gallery-grid button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .gallery-grid .ph{width:100%;height:100%}
@@ -298,7 +298,7 @@ footer .brand img{height:72px;filter:invert(1)!important}
     </div>
 
     <article class="am">
-      <div class="ph"><img src="images/patio-dining.webp" alt="Folding patio doors open from the studio onto the dining patio and pool" style="object-position:62% center" loading="lazy"></div>
+      <div class="ph"><img src="images/studio-bed-pool-view.webp" alt="The studio with the bed made up, a window looking out to the pool" loading="lazy"></div>
       <div class="txt">
         <h3>Private studio or 1 bedroom rental (4 guests max)</h3>
         <p class="sub">Availability for double occupancy = studio + additional bedroom for 3–4 persons</p>
@@ -318,7 +318,7 @@ footer .brand img{height:72px;filter:invert(1)!important}
     </article>
 
     <article class="am">
-      <div class="ph"><img src="images/stairs-to-pool.webp" alt="Glass-railed stairs leading down through greenery to the pool" loading="lazy"></div>
+      <div class="ph"><img src="images/view-from-studio.webp" alt="View through the studio patio doors to the dining patio, pool and basketball court" loading="lazy"></div>
       <div class="txt">
         <h3>Convenient location, quiet &amp; private oasis</h3>
         <p class="sub">Minutes from Toronto Airport, cafes, grocery stores, malls, restaurants and more</p>
@@ -339,7 +339,7 @@ footer .brand img{height:72px;filter:invert(1)!important}
     </article>
 
     <article class="am">
-      <div class="ph"><img src="images/backyard-pool-aerial.webp" alt="Pool, slide and gazebo surrounded by mature trees" loading="lazy"></div>
+      <div class="ph"><img src="images/basketball-court.webp" alt="Private basketball court with trampoline and axe-throwing target, surrounded by cedars" loading="lazy"></div>
       <div class="txt">
         <h3>Family friendly, perfect for all ages</h3>
         <p class="sub">Private pool, hot tub, basketball court, campfire pit, trampoline, board games…</p>
@@ -360,7 +360,7 @@ footer .brand img{height:72px;filter:invert(1)!important}
     </article>
 
     <article class="am">
-      <div class="ph"><img src="images/9a627338-35bd-496f-adf0-7ccedbb614ab.webp" alt="Bathroom with glass shower" loading="lazy"></div>
+      <div class="ph"><img src="images/bathroom.webp" alt="Bathroom with glass rain shower, wood vanity and round mirror" style="object-position:40% center" loading="lazy"></div>
       <div class="txt">
         <h3>Heated flooring throughout &amp; bathroom comfort</h3>
         <p class="sub">Modern full bathroom with enclosed glass shower and changing bench</p>
@@ -379,7 +379,7 @@ footer .brand img{height:72px;filter:invert(1)!important}
     </article>
 
     <article class="am">
-      <div class="ph"><img src="images/gazebo-lounge.webp" alt="Gazebo lounge with sectional sofa beside the pool and hot tub" loading="lazy"></div>
+      <div class="ph"><img src="images/pool-gazebo-studio.webp" alt="Pool, gazebo lounge, day bed and outdoor dining in front of the studio" loading="lazy"></div>
       <div class="txt">
         <h3>Outdoor living experience</h3>
         <p class="sub">Outdoor dining table, BBQ grills, Sunbrella canopies, gazebo and more</p>
@@ -403,7 +403,7 @@ footer .brand img{height:72px;filter:invert(1)!important}
     <h2>Extras &amp; services</h2>
     <div class="extras-grid">
       <article class="ex">
-        <div class="ph"><img src="images/espresso.webp" alt="Espresso machine and grinder at the coffee bar" loading="lazy"></div>
+        <div class="ph"><img src="images/espresso-machine.webp" alt="Breville espresso machine with bean hopper, milk jug and portafilter" loading="lazy"></div>
         <div>
           <h3>Gourmet espresso &amp; wine bar</h3>
           <p>Savour freshly brewed espresso or coffee from our coffee bar and cool down with an iced cappuccino, with access to ice and a filtered water dispenser. Our wine fridge lets guests keep their wine at a controlled temperature for a refined taste experience.</p>
@@ -563,8 +563,8 @@ menuBtn.addEventListener('click', () => { const o = menu.classList.toggle('open'
 menu.addEventListener('click', e => { if (e.target.tagName === 'A') { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
 
 // gallery
-const photos = ['night-gazebo-pool.webp','gazebo-lounge.webp','backyard-pool-aerial.webp','deck.webp','stairs-to-pool.webp','patio-dining.webp','studio-exterior.webp','night-lights.webp'].map(f => 'images/' + f);
-const shapes = {0:'g-wide g-tall',5:'g-wide'};
+const photos = ['night-gazebo-pool.webp','studio-bed.webp','studio-bed-pool-view.webp','view-from-studio.webp','bathroom.webp','espresso-bar.webp','espresso-machine.webp','pool-gazebo-studio.webp','gazebo-lounge.webp','gazebo-hot-tub.webp','pool-loungers.webp','backyard-pool-aerial.webp','deck.webp','studio-from-court.webp','basketball-court.webp','stairs-to-pool.webp','patio-dining.webp','studio-exterior.webp','night-lights.webp'].map(f => 'images/' + f);
+const shapes = {0:'g-wide g-tall',1:'g-wide',3:'g-wide',7:'g-wide g-tall',9:'g-tall',13:'g-tall',14:'g-wide',16:'g-wide',18:'g-wide'};
 const grid = document.getElementById('grid');
 photos.forEach((src, i) => {
   const b = document.createElement('button');
